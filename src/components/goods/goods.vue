@@ -32,17 +32,24 @@
                   <span class="now">￥{{ food.price }}</span>
                   <span class="old" v-show="food.oldPrice">￥{{ food.oldPrice }}</span>
                 </div>
+                <div class="cartcontrol-wrepper">
+                  <cartcontrol :food="food"></cartcontrol>
+                </div>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
+    <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice"
+              :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
+  import shopcart from '../../components/shopcart/shopcart.vue'
+  import cartcontrol from '../../components/cartcontrol/cartcontrol.vue'
 
   const ERR_OK = 0
 
@@ -68,6 +75,17 @@
             return i
           }
         }
+      },
+      selectFoods () {
+        let foods = []
+        this.goods.forEach((good) => {
+          good.foods.forEach((food) => {
+            if (food.count) {
+              foods.push(food)
+            }
+          })
+        })
+        return foods
       }
     },
     created () {
@@ -99,6 +117,7 @@
           click: true
         })
         this.foodsScroll = new BScroll(this.$refs.foods, {
+          click: true,
           probeType: 3
         })
         this.foodsScroll.on('scroll', (pos) => {
@@ -115,6 +134,10 @@
           this.listHeight.push(height)
         }
       }
+    },
+    components: {
+      shopcart,
+      cartcontrol
     }
   }
 </script>
@@ -221,4 +244,8 @@
               text-decoration line-through
               font-size 10px
               color rgb(147, 153, 159)
+          .cartcontrol-wrepper
+            position absolute
+            right 0
+            bottom 12px
 </style>
