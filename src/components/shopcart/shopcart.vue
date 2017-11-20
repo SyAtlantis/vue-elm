@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="shopcart">
     <div class="content">
       <div class="content-left">
@@ -165,4 +166,15 @@
           &.enough
             background #00b43c
             color #fff
+=======
+
+</template>
+
+<script type="text/ecmascript-6">
+
+</script>
+
+<style lang="stylus" rel="stylesheet/stylus">
+
+>>>>>>> 76e26915bc81d2a549541b816299ce588c036dfe
 </style>
