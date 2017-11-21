@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="cartcontrol">
     <div class="cart-decrease " v-show="food.count>0" @click="decreaseCart">
       <transition name="move">
@@ -8,27 +7,17 @@
     </div>
     <div class="cart-count" v-show="food.count>0">{{ food.count }}</div>
     <div class="cart-add icon-add_circle" @click="addCart"></div>
-=======
-  <div class="cartcontral">
-    <div class="cart-decrease" v-show="food.count>0"></div>
-    <div class="cart-count" v-show="food.count>0">{{ food.count }}</div>
-    <div class="cart-add"></div>
->>>>>>> 76e26915bc81d2a549541b816299ce588c036dfe
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-<<<<<<< HEAD
   import Vue from 'vue'
-=======
->>>>>>> 76e26915bc81d2a549541b816299ce588c036dfe
   export default {
     props: {
       food: {
         type: Object
       }
     },
-<<<<<<< HEAD
     methods: {
       addCart (event) {
         if (!event._constructed) {
@@ -48,16 +37,14 @@
           this.food.count--
         }
       }
-=======
+    },
     created () {
       console.log(this.food)
->>>>>>> 76e26915bc81d2a549541b816299ce588c036dfe
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-<<<<<<< HEAD
   .cartcontrol
     font-size 0
     .cart-decrease
@@ -95,7 +82,4 @@
       line-height 24px
       font-size 24px
       color rgb(0, 160, 220)
-=======
-
->>>>>>> 76e26915bc81d2a549541b816299ce588c036dfe
 </style>
